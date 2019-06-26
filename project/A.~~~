@@ -1,0 +1,59 @@
+/* RETURNS VALUE OF A REQUIRED BIT IN A BITMAP (EITHER 1 OR 0) */
+int bitmap::getbit(long xval,long yval)
+  {     int x,y,value;
+        x=(int) (xval/8);  /* CALCULATE X POSITION IN ARRAY */
+        y=(int) (yval);    /* CALCULATE Y POSITION IN ARRAY */
+        switch ((int) xval-(x*8))      /* WHICH BIT IS REQUIRED ? */
+            {   case 7:{value=1;break;}   /* BINARY 00000001 IE.BIT
+0 */
+                case 6:{value=2;break;}   /* BINARY 00000010 IE.BIT
+1 */
+                case 5:{value=4;break;}   /* BINARY 00000100 IE.BIT
+2 */
+                case 4:{value=8;break;}   /* BINARY 00001000 IE.BIT
+3 */
+                case 3:{value=16;break;}  /* BINARY 00010000 IE.BIT
+4 */
+                case 2:{value=32;break;}  /* BINARY 00100000 IE.BIT
+5 */
+                case 1:{value=64;break;}  /* BINARY 01000000 IE.BIT
+6 */
+                case 0:{value=128;break;} /* BINARY 10000000 IE.BIT
+7 */
+            }
+    if ((bm[x][y]&value)==value)  /* BINARY "AND" TO CHECK IS THE */
+       return(1);                  /* BIT SET  */
+    else
+        return(0);
+
+  }
+
+
+int bitmap::getbit(long xval,long yval)
+  {     int x,y,value;
+        x=(int) (xval/8);  /* CALCULATE X POSITION IN ARRAY */
+        y=(int) (yval);    /* CALCULATE Y POSITION IN ARRAY */
+        switch ((int) xval-(x*8))      /* WHICH BIT IS REQUIRED ? */
+            {   case 7:{value=1;break;}   /* BINARY 00000001 IE.BIT
+0 */
+                case 6:{value=2;break;}   /* BINARY 00000010 IE.BIT
+1 */
+                case 5:{value=4;break;}   /* BINARY 00000100 IE.BIT
+2 */
+                case 4:{value=8;break;}   /* BINARY 00001000 IE.BIT
+3 */
+                case 3:{value=16;break;}  /* BINARY 00010000 IE.BIT
+4 */
+                case 2:{value=32;break;}  /* BINARY 00100000 IE.BIT
+5 */
+                case 1:{value=64;break;}  /* BINARY 01000000 IE.BIT
+6 */
+                case 0:{value=128;break;} /* BINARY 10000000 IE.BIT
+7 */
+            }
+    if ((bm[x][y]&value)==value)  /* BINARY "AND" TO CHECK IS THE */
+       return(1);                  /* BIT SET  */
+    else
+        return(0);
+
+  }
